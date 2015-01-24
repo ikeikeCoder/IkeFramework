@@ -6,10 +6,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
-import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
+import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 /**
 * @package org.fervorseed.ikeframework.common.config
@@ -52,6 +53,20 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter{
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/resources/**")
 		  .addResourceLocations("/resources/")
-		  .addResourceLocations("classpath:/resources/");
+		  .addResourceLocations("classpath:/resources/")
+		  .setCachePeriod(31556926);	// 브라우저 캐시 만료 기간 1년 설정.
+	}
+	
+	@Override
+	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+		configurer.enable();
+	}
+	
+	@Bean
+	public  InternalResourceViewResolver internalViewResolver() {
+		InternalResourceViewResolver internalViewResolver = new InternalResourceViewResolver();
+		internalViewResolver.setPrefix("/WEB-INF/view/");
+		internalViewResolver.setSuffix(".jsp");
+		return internalViewResolver;
 	}
 }

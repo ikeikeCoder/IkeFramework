@@ -1,11 +1,8 @@
 package org.fervorseed.ikeframework.common.config;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.scheduling.annotation.EnableAsync;
-import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 
 /**
@@ -25,13 +22,5 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
 public class RootConfig {
 	
-	@Bean
-	public ViewResolver viewResolver()
-	{
-        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setPrefix("/WEB-INF/views/");
-        resolver.setSuffix(".jsp");
-        resolver.setOrder(1);
-        return resolver;
-    }
+	
 }
