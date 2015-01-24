@@ -1,7 +1,11 @@
 package org.fervorseed.ikeframework.common.config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.context.annotation.Import;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 
 /**
@@ -15,9 +19,19 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 * @Description : MVC 설정용 클래스.
 * 						이 클래스는 스프링의 servlet-context.xml 역활을 대신함
 */
-@EnableWebMvc
+
+@Import({WebMvcConfig.class})	// @EnableWebMvc 설정 파일
+@EnableAsync // @Async 어노테이션을 사용하기 위함
 @Configuration
 public class RootConfig {
-
 	
+	@Bean
+	public ViewResolver viewResolver()
+	{
+        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+        resolver.setPrefix("/WEB-INF/views/");
+        resolver.setSuffix(".jsp");
+        resolver.setOrder(1);
+        return resolver;
+    }
 }
