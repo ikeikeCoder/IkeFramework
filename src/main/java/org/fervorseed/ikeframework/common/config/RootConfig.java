@@ -17,10 +17,9 @@ import org.springframework.scheduling.annotation.EnableAsync;
 * 						이 클래스는 스프링의 servlet-context.xml 역활을 대신함
 */
 
-@Import({WebMvcConfig.class})	// @EnableWebMvc 설정 파일
-@EnableAsync // @Async 어노테이션을 사용하기 위함
 @Configuration
+@EnableAsync // @Async 어노테이션을 사용하기 위함
+@Import({WebMvcConfig.class})	// @EnableWebMvc 설정 파일
 public class RootConfig {
-	
 	
 }

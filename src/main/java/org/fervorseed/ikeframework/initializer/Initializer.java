@@ -27,6 +27,8 @@ import org.springframework.web.servlet.DispatcherServlet;
 */
 public class Initializer implements WebApplicationInitializer {
 	
+	private static final String ENCODING = "UTF-8";
+	
 	@Override
 	public void onStartup(ServletContext servletContext) throws ServletException {
 		AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
@@ -34,7 +36,7 @@ public class Initializer implements WebApplicationInitializer {
 		servletContext.addListener(new ContextLoaderListener(rootContext));
 
 		this.addDispatcherServlet(servletContext, "appDispatcher", "/*", "true", 1);
-        this.addUtf8CharacterEncodingFilter(servletContext, "UTF-8", "/*");
+        this.addUtf8CharacterEncodingFilter(servletContext, "/*");
 	}
 	
 	/**
@@ -58,10 +60,10 @@ public class Initializer implements WebApplicationInitializer {
      * UTF-8 캐릭터 인코딩 필터를 추가한다.
      * @param servletContext, encoding, pattern
      */
-    private void addUtf8CharacterEncodingFilter(ServletContext servletContext, String encoding, String pattern)
+    private void addUtf8CharacterEncodingFilter(ServletContext servletContext, String pattern)
     {
         FilterRegistration.Dynamic filter = servletContext.addFilter("CHARACTER_ENCODING_FILTER", CharacterEncodingFilter.class);
-        filter.setInitParameter("encoding", encoding);
+        filter.setInitParameter("encoding", ENCODING);
         filter.setInitParameter("forceEncoding", "true");
         filter.addMappingForUrlPatterns(null, false, pattern);
     }
