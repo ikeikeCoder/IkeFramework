@@ -38,7 +38,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	 * */
 	@Override
 	public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-//		converters.add(jsonMessageConverter());
+		converters.add(getJsonMessageConverter());
 //		converters.add(xmlMessageConverter());
 	}
 	
@@ -49,11 +49,11 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 		
 	}
 	
-//	@Bean
-//	public MappingJackson2HttpMessageConverter jsonMessageConverter() {
-//		MappingJackson2HttpMessageConverter jsonMessageConverter = new MappingJackson2HttpMessageConverter();
-//		return jsonMessageConverter;
-//	}
+	@Bean
+	public MappingJackson2HttpMessageConverter getJsonMessageConverter() {
+		MappingJackson2HttpMessageConverter jsonMessageConverter = new MappingJackson2HttpMessageConverter();
+		return jsonMessageConverter;
+	}
 //	
 //	@Bean MappingJackson2HttpMessageConverter xmlMessageConverter() {
 //		MappingJackson2HttpMessageConverter xmlMessageConverter = new MappingJackson2HttpMessageConverter();
@@ -72,7 +72,8 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	}
 	
 	/**
-     * @param  Set default servlet handler, this is the same as <mvc:default-servlet-handler/>
+     * <mvc:default-servlet-handler/>
+     * 기본서블릿 사용 선언
      */
 	@Override
 	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
