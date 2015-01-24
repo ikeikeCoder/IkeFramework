@@ -180,6 +180,16 @@
 					</argLine>
 				</configuration>
 			</plugin>
+			
+			<!-- 처음 시작시 web.xml 로드를 안함. -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.3</version>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 </project>
