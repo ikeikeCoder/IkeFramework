@@ -37,7 +37,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	 * */
 	@Override
 	public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-//		converters.add(getJsonMessageConverter());
+		converters.add(getJsonMessageConverter());
 //		converters.add(xmlMessageConverter());
 	}
 	

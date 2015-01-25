@@ -62,6 +62,20 @@
 			</exclusions>
 		</dependency>
 		
+		<!-- spring JDBC -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-jdbc</artifactId>
+		    <version>${spring-framework.version}</version>
+		</dependency>
+		
+		<!-- 스프링 OXM 사용을 위한 라이브러리 추가 (XML 객체 변환) -->
+		<dependency>
+		 	<groupId>org.springframework</groupId>
+		 	<artifactId>spring-oxm</artifactId>
+		 	<version>${spring-framework.version}</version>
+		</dependency>
+		
 		<!-- Other Web dependencies -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -106,6 +120,12 @@
 		</dependency>
 		
 		<!-- JDBC Drivers -->
+		<dependency>
+		    <groupId>com.jolbox</groupId>
+		    <artifactId>bonecp-spring</artifactId>
+		    <version>0.8.0.RELEASE</version>
+		</dependency>
+		
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>

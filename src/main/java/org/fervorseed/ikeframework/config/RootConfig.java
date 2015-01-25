@@ -19,7 +19,6 @@ import org.springframework.scheduling.annotation.EnableAsync;
 */
 
 @Configuration
-@EnableAsync // @Async 어노테이션을 사용하기 위함
 @Import({WebMvcConfig.class})	// @EnableWebMvc 설정 파일
 public class RootConfig {
 	
