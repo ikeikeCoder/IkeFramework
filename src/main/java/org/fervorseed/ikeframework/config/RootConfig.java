@@ -1,5 +1,6 @@
-package org.fervorseed.ikeframework.common.config;
+	package org.fervorseed.ikeframework.config;
 
+import org.fervorseed.ikeframework.config.web.WebMvcConfig;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.scheduling.annotation.EnableAsync;

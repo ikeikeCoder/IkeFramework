@@ -5,8 +5,9 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
-import org.fervorseed.ikeframework.app.config.AppConfig;
-import org.fervorseed.ikeframework.common.config.RootConfig;
+import org.fervorseed.ikeframework.config.RootConfig;
+import org.fervorseed.ikeframework.config.api.ApiMvcConfig;
+import org.fervorseed.ikeframework.config.web.WebMvcConfig;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
@@ -35,7 +36,8 @@ public class Initializer implements WebApplicationInitializer {
 		rootContext.register(RootConfig.class);
 		servletContext.addListener(new ContextLoaderListener(rootContext));
 
-		this.addDispatcherServlet(servletContext, "appDispatcher", "/*", "true", 1);
+		this.addDispatcherServlet(servletContext, WebMvcConfig.class ,"webDispatcher", "/web/*", "true", 1);
+		this.addDispatcherServlet(servletContext, ApiMvcConfig.class ,"apiDispatcher", "/api/*", "true", 2);
         this.addUtf8CharacterEncodingFilter(servletContext, "/*");
 	}
 	
@@ -44,11 +46,9 @@ public class Initializer implements WebApplicationInitializer {
      * CORS 를 가능하게 하기 위해서 dispatchOptionsRequest 설정을 true 로 한다.
      * @param servletContext, servletName, pattern, cors, order
      */
-	private void addDispatcherServlet (ServletContext servletContext, String servletName, String pattern, String cors, int order) {
+	private void addDispatcherServlet (ServletContext servletContext, Class servletConfig, String servletName, String pattern, String cors, int order) {
 		AnnotationConfigWebApplicationContext applicationContext = new AnnotationConfigWebApplicationContext();
-		applicationContext.register(AppConfig.class);
-		//applicationContext.getEnvironment().addActiveProfile("production");
-		
+		applicationContext.register(servletConfig);
 		 
         ServletRegistration.Dynamic dispatcher = servletContext.addServlet(servletName, new DispatcherServlet(applicationContext));
         dispatcher.setLoadOnStartup(order);

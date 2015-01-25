@@ -1,4 +1,4 @@
-package org.fervorseed.ikeframework.common.config;
+package org.fervorseed.ikeframework.config.common;
 
 import org.springframework.context.annotation.Configuration;
 

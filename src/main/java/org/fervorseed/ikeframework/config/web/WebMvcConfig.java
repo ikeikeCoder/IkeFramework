@@ -1,10 +1,9 @@
-package org.fervorseed.ikeframework.common.config;
+package org.fervorseed.ikeframework.config.web;
 
 import java.util.List;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
@@ -38,7 +37,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	 * */
 	@Override
 	public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-		converters.add(getJsonMessageConverter());
+//		converters.add(getJsonMessageConverter());
 //		converters.add(xmlMessageConverter());
 	}
 	
@@ -52,6 +51,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	@Bean
 	public MappingJackson2HttpMessageConverter getJsonMessageConverter() {
 		MappingJackson2HttpMessageConverter jsonMessageConverter = new MappingJackson2HttpMessageConverter();
+		jsonMessageConverter.setPrettyPrint(true);
 		return jsonMessageConverter;
 	}
 //	
