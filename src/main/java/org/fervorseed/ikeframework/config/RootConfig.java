@@ -1,8 +1,9 @@
 	package org.fervorseed.ikeframework.config;
 
+import org.fervorseed.ikeframework.config.common.BusinessConfig;
 import org.fervorseed.ikeframework.config.common.DataAccessConfig;
 import org.fervorseed.ikeframework.config.common.DataSourceConfig;
-import org.fervorseed.ikeframework.config.web.WebMvcConfig;
+import org.fervorseed.ikeframework.config.mvc.WebMvcConfig;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.scheduling.annotation.EnableAsync;
@@ -21,7 +22,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 */
 
 @Configuration
-@Import(value = {DataSourceConfig.class, DataAccessConfig.class})
+@Import(value = {BusinessConfig.class, DataSourceConfig.class, DataAccessConfig.class})
 public class RootConfig {
 	
 }

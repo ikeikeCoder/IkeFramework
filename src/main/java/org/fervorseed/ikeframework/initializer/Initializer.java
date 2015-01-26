@@ -6,8 +6,8 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
 import org.fervorseed.ikeframework.config.RootConfig;
-import org.fervorseed.ikeframework.config.api.ApiMvcConfig;
-import org.fervorseed.ikeframework.config.web.WebMvcConfig;
+import org.fervorseed.ikeframework.config.mvc.ApiMvcConfig;
+import org.fervorseed.ikeframework.config.mvc.WebMvcConfig;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;

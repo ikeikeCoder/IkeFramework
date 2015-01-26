@@ -1,4 +1,4 @@
-package org.fervorseed.ikeframework.config.web;
+package org.fervorseed.ikeframework.config.mvc;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 /**
-* @package org.fervorseed.ikeframework.common.config
+* @package org.fervorseed.ikeframework.config.mvc
 * @fileName WebMvcConfig.java
 * 
 * @Company : FervorSeed
@@ -28,10 +28,9 @@ import org.springframework.web.servlet.view.JstlView;
 * 						{@EnableWebMvc} 설정 파일
 * 						{@EnableWebMvc} 은 xml 설정에서 <mvc:annotation-driven /> 의 역활이다
 */
-
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {"org.fervorseed.ikeframework.controller.web", "org.fervorseed.ikeframework.service.web", "org.fervorseed.ikeframework.mapper.web"})
+@ComponentScan(basePackages = {"org.fervorseed.ikeframework.controller.web"})
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	
 	private static final int CACHE_PERIOD = 31556926; // one year
@@ -41,7 +40,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	 * */
 	@Override
 	public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-		converters.add(getJsonMessageConverter());
+		converters.add(getJsonMessageConverter());	// json 처리
 //		converters.add(xmlMessageConverter());
 	}
 	
