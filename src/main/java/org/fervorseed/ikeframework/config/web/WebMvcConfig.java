@@ -31,7 +31,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {"org.fervorseed.ikeframework.controller.web"})
+@ComponentScan(basePackages = {"org.fervorseed.ikeframework.controller.web", "org.fervorseed.ikeframework.service.web", "org.fervorseed.ikeframework.mapper.web"})
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	
 	private static final int CACHE_PERIOD = 31556926; // one year

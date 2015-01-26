@@ -21,7 +21,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 */
 
 @Configuration
-@Import(value = {WebMvcConfig.class, DataSourceConfig.class, DataAccessConfig.class})
+@Import(value = {DataSourceConfig.class, DataAccessConfig.class})
 public class RootConfig {
 	
 }
