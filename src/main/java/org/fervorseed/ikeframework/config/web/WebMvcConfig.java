@@ -3,6 +3,7 @@ package org.fervorseed.ikeframework.config.web;
 import java.util.List;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
@@ -28,8 +29,9 @@ import org.springframework.web.servlet.view.JstlView;
 * 						{@EnableWebMvc} 은 xml 설정에서 <mvc:annotation-driven /> 의 역활이다
 */
 
-@EnableWebMvc
 @Configuration
+@EnableWebMvc
+@ComponentScan(basePackages = {"org.fervorseed.ikeframework.controller.web"})
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	
 	private static final int CACHE_PERIOD = 31556926; // one year
