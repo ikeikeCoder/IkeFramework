@@ -3,9 +3,9 @@
 <properties>
 	<comment>orcle 설정파일</comment>
 	<entry key="jdbc.driverClassName">oracle.jdbc.driver.OracleDriver</entry>
-	<entry key="jdbc.url">jdbc:oracle:thin:@simplatform.com:1521/GHDB</entry>
-	<entry key="jdbc.username">ghuser</entry>
-	<entry key="jdbc.password">ghuser</entry>
+	<entry key="jdbc.url">jdbc:oracle:thin:@:1521/</entry>
+	<entry key="jdbc.username"></entry>
+	<entry key="jdbc.password"></entry>
 	
 <!-- 	<comment>mysql 설정파일</comment> -->
 <!-- 	<entry key="jdbc.driverClassName">com.mysql.jdbc.Driver</entry> -->
