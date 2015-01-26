@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>orcle 설정파일</comment>
+	<entry key="jdbc.driverClassName">oracle.jdbc.driver.OracleDriver</entry>
+	<entry key="jdbc.url">jdbc:oracle:thin:@simplatform.com:1521/GHDB</entry>
+	<entry key="jdbc.username">ghuser</entry>
+	<entry key="jdbc.password">ghuser</entry>
+	
+<!-- 	<comment>mysql 설정파일</comment> -->
+<!-- 	<entry key="jdbc.driverClassName">com.mysql.jdbc.Driver</entry> -->
+<!-- 	<entry key="jdbc.url">jdbc:mysql://host:port/database</entry> -->
+<!-- 	<entry key="jdbc.username">user</entry> -->
+<!-- 	<entry key="jdbc.password">password</entry> -->
+	
+</properties>
