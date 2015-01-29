@@ -1,4 +1,4 @@
-package org.fervorseed.ikeframework.config.common;
+package org.fervorseed.ikeframework.initializer.config.common;
 
 import javax.sql.DataSource;
 
@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.jolbox.bonecp.BoneCPDataSource;
 
-@EnableTransactionManagement
+
 @Configuration
 public class DataSourceConfig {
 

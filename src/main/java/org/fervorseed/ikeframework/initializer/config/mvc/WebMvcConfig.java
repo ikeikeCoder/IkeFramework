@@ -1,13 +1,17 @@
-package org.fervorseed.ikeframework.config.mvc;
+package org.fervorseed.ikeframework.initializer.config.mvc;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.http.converter.xml.MarshallingHttpMessageConverter;
+import org.springframework.oxm.castor.CastorMarshaller;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -40,28 +44,21 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	 * */
 	@Override
 	public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-		converters.add(getJsonMessageConverter());	// json 처리
-//		converters.add(xmlMessageConverter());
-	}
-	
-	@Bean
-	public StringHttpMessageConverter getStringHttpMessageConverter() {
-		StringHttpMessageConverter stringHttpMessageConverter =  new StringHttpMessageConverter();
-		return stringHttpMessageConverter;
-		
+		converters.add(getJsonMessageConverter());
 	}
 	
 	@Bean
 	public MappingJackson2HttpMessageConverter getJsonMessageConverter() {
 		MappingJackson2HttpMessageConverter jsonMessageConverter = new MappingJackson2HttpMessageConverter();
+		
+		List<MediaType> list = new ArrayList<MediaType>();
+		
+		list.add(MediaType.APPLICATION_JSON);
+		
 		jsonMessageConverter.setPrettyPrint(true);
+		jsonMessageConverter.setSupportedMediaTypes(list);
 		return jsonMessageConverter;
 	}
-//	
-//	@Bean MappingJackson2HttpMessageConverter xmlMessageConverter() {
-//		MappingJackson2HttpMessageConverter xmlMessageConverter = new MappingJackson2HttpMessageConverter();
-//		return xmlMessageConverter;
-//	}
 
 	/**
 	 * resource 파일 경로 설정 (css, javascript 등등)

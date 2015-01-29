@@ -1,12 +1,10 @@
-	package org.fervorseed.ikeframework.config;
+	package org.fervorseed.ikeframework.initializer.config;
 
-import org.fervorseed.ikeframework.config.common.BusinessConfig;
-import org.fervorseed.ikeframework.config.common.DataAccessConfig;
-import org.fervorseed.ikeframework.config.common.DataSourceConfig;
-import org.fervorseed.ikeframework.config.mvc.WebMvcConfig;
+import org.fervorseed.ikeframework.initializer.config.common.BusinessConfig;
+import org.fervorseed.ikeframework.initializer.config.common.DataAccessConfig;
+import org.fervorseed.ikeframework.initializer.config.common.DataSourceConfig;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import org.springframework.scheduling.annotation.EnableAsync;
 
 
 /**

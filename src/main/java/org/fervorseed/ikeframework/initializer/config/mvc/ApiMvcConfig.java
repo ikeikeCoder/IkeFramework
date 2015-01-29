@@ -1,4 +1,4 @@
-package org.fervorseed.ikeframework.config.mvc;
+package org.fervorseed.ikeframework.initializer.config.mvc;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

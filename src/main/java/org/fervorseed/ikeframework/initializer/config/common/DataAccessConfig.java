@@ -1,4 +1,4 @@
-package org.fervorseed.ikeframework.config.common;
+package org.fervorseed.ikeframework.initializer.config.common;
 
 import javax.sql.DataSource;
 
