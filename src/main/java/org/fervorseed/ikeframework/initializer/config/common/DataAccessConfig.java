@@ -11,9 +11,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.stereotype.Repository;
 
 @Configuration
-@MapperScan("org.fervorseed.ikeframework.mapper")
+@MapperScan("org.fervorseed.ikeframework.mapper")	// @Repository 검색
 public class DataAccessConfig {
 	
 	@Autowired

@@ -25,7 +25,7 @@ public class DataSourceConfig {
     @Value("${jdbc.password}")
     private String jdbcPassword;
 	
-	private final static String JDBC_CONFIG_PATH = "config/datasource_config.xml";
+	private final static String JDBC_CONFIG_PATH = "config/dataSource/datasource_config.xml";
 	
 	/**
 	 * {@link org.springframework.beans.factory.config.PropertyPlaceholderConfigurer}

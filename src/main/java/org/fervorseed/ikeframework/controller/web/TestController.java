@@ -1,6 +1,7 @@
 package org.fervorseed.ikeframework.controller.web;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -37,9 +38,9 @@ public class TestController {
 		return returnMap;
 	}
 	
-	@RequestMapping("/getCabinetInfo")
+	@RequestMapping("/getUserList")
 	@ResponseBody
-	public Test getCabinetInfo(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception{
-		return testService.getCabinetInfo();
+	public List<Test> getCabinetInfo(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception{
+		return testService.getUserList();
 	}
 }

@@ -2,7 +2,8 @@ package org.fervorseed.ikeframework.domain.web;
 
 public class Test {
 	String id;
-	String cabinetName;
+	String name;
+	int age;
 	
 	public String getId() {
 		return id;
@@ -10,10 +11,17 @@ public class Test {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getCabinetName() {
-		return cabinetName;
+	public String getName() {
+		return name;
 	}
-	public void setCabinetName(String cabinetName) {
-		this.cabinetName = cabinetName;
+	public void setName(String name) {
+		this.name = name;
 	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	
 }

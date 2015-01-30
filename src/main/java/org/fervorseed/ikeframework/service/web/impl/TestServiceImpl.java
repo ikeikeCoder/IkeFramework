@@ -1,5 +1,7 @@
 package org.fervorseed.ikeframework.service.web.impl;
 
+import java.util.List;
+
 import org.fervorseed.ikeframework.domain.web.Test;
 import org.fervorseed.ikeframework.mapper.web.TestMapper;
 import org.fervorseed.ikeframework.service.web.TestService;
@@ -13,8 +15,8 @@ public class TestServiceImpl implements TestService{
 	TestMapper testMapper;
 
 	@Override
-	public Test getCabinetInfo() {
-		return testMapper.getCabinetInfo();
+	public List<Test> getUserList() {
+		return testMapper.getUserList();
 	}
 
 }
