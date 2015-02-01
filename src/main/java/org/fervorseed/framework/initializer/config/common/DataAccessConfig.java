@@ -3,16 +3,28 @@ package org.fervorseed.framework.initializer.config.common;
 import javax.sql.DataSource;
 
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.aspectj.apache.bcel.Repository;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
+/**
+* @package org.fervorseed.framework.initializer.config.common
+* @fileName DataAccessConfig.java
+* 
+* @Company : FervorSeed
+* @Author  : ike
+* @Date    : 2015. 1. 24. 오후 5:14:37
+* @Version : 1.0
+* @Description : {@RE} 컴포넌트를 스캔한다.  
+*/
 @Configuration
-@MapperScan("org.fervorseed.framework.mapper")	// @Repository 검색
+@MapperScan(basePackages = {"org.fervorseed.framework.mapper"})	// @Repository 검색
 public class DataAccessConfig {
 	
 	@Autowired

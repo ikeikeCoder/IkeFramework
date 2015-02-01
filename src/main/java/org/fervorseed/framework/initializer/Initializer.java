@@ -6,7 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
 import org.fervorseed.framework.initializer.config.RootConfig;
-import org.fervorseed.framework.initializer.config.mvc.ApiMvcConfig;
+import org.fervorseed.framework.initializer.config.mvc.RestMvcConfig;
 import org.fervorseed.framework.initializer.config.mvc.WebMvcConfig;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
@@ -30,6 +30,7 @@ public class Initializer implements WebApplicationInitializer {
 	
 	private static final String ENCODING = "UTF-8";
 	
+	/*  web 설정 시작위치 */
 	@Override
 	public void onStartup(ServletContext servletContext) throws ServletException {
 		AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
@@ -37,7 +38,7 @@ public class Initializer implements WebApplicationInitializer {
 		servletContext.addListener(new ContextLoaderListener(rootContext));
 
 		this.addDispatcherServlet(servletContext, WebMvcConfig.class ,"webDispatcher", "/web/*", "true", 1);
-		this.addDispatcherServlet(servletContext, ApiMvcConfig.class ,"restDispatcher", "/api/*", "true", 2);
+		this.addDispatcherServlet(servletContext, RestMvcConfig.class ,"restDispatcher", "/api/*", "true", 2);
         this.addUtf8CharacterEncodingFilter(servletContext, "/*");
 	}
 	

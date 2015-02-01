@@ -12,7 +12,16 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.jolbox.bonecp.BoneCPDataSource;
 
-
+/**
+* @package org.fervorseed.framework.initializer.config.common
+* @fileName DataSourceConfig.java
+* 
+* @Company : FervorSeed
+* @Author  : ike
+* @Date    : 2015. 1. 24. 오후 5:14:37
+* @Version : 1.0
+* @Description : BoneCP(JDBC) 설정
+*/
 @Configuration
 public class DataSourceConfig {
 
@@ -30,7 +39,7 @@ public class DataSourceConfig {
 	/**
 	 * {@link org.springframework.beans.factory.config.PropertyPlaceholderConfigurer}
 	 * 
-	 * jdbc 설정 파일을 읽어들인다. 
+	 * BoneCP(JDBC) 설정 파일을 읽어들인다. 
 	 * 다른 빈들이 사용하는 프로퍼티들을 로딩 하기때문에 static 선언
 	 * */
 	@Bean
