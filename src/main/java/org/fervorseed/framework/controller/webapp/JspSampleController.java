@@ -16,7 +16,7 @@ public class JspSampleController {
 	JspSampleService jspSampleService;
 	
 	@RequestMapping("/selectUserList")
-	public String getCabinetInfo(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception{
+	public String selectUserList(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception{
 		model.addAttribute("userList",jspSampleService.selectUserList());
 		return "userList";
 	}

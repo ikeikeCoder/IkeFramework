@@ -7,5 +7,5 @@ import org.fervorseed.framework.domain.webapp.JspSample;
 public interface JspSampleService {
 	public List<JspSample> selectUserList() throws Exception;
 	
-	public int insertUser(JspSample JspSample);
+	public int insertUser(JspSample jspSample);
 }

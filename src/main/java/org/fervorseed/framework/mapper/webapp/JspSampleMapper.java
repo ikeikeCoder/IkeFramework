@@ -6,7 +6,7 @@ import org.fervorseed.framework.domain.webapp.JspSample;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface jspSampleMapper {
+public interface JspSampleMapper {
 	public List<JspSample> selectUserList();
 	
 	public int insertUser(JspSample JspSample);

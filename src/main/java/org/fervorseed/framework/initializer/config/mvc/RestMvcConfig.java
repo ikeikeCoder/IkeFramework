@@ -15,6 +15,8 @@ import org.springframework.web.servlet.config.annotation.DefaultServletHandlerCo
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
 
 /**
 * @package org.fervorseed.framework.initializer.config.mvc
@@ -32,7 +34,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = {"org.fervorseed.framework.controller.restapp"}, useDefaultFilters=false, includeFilters={@Filter(Controller.class)})
-public class RestMvcConfig extends WebMvcConfigurerAdapter{
+public class RestMvcConfig extends WebMvcConfigurerAdapter {
 	
 	private static final int CACHE_PERIOD = 31556926; // one year
 	
@@ -79,5 +81,6 @@ public class RestMvcConfig extends WebMvcConfigurerAdapter{
 	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
 		configurer.enable();
 	}
+	
 
 }
