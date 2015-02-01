@@ -38,7 +38,7 @@ public class Initializer implements WebApplicationInitializer {
 		servletContext.addListener(new ContextLoaderListener(rootContext));
 
 		this.addDispatcherServlet(servletContext, WebMvcConfig.class ,"webDispatcher", "/web/*", "true", 1);
-		this.addDispatcherServlet(servletContext, RestMvcConfig.class ,"restDispatcher", "/api/*", "true", 2);
+		this.addDispatcherServlet(servletContext, RestMvcConfig.class ,"restDispatcher", "/rest/*", "true", 2);
         this.addUtf8CharacterEncodingFilter(servletContext, "/*");
 	}
 	

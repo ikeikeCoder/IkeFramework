@@ -2,15 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- 마이바티스는 namespace의 값인 org.fervorseed.framework.mapper.webapp.TestMapper 인터페이스를 매퍼로 연결한다. -->
-<mapper namespace="org.fervorseed.framework.mapper.webapp.TestMapper">
+<mapper namespace="org.fervorseed.framework.mapper.webapp.jspSampleMapper">
 
 	<!--  -->
-    <select id="selectUserList" resultType="Test" >
+    <select id="selectUserList" resultType="JspSample" >
 		SELECT id, name, age
 		FROM fv_member
     </select>
     
-    <insert id="insertUser" parameterType="Test">
+    <insert id="insertUser" parameterType="JspSample">
     	INSERT INTO fv_member
     	(id, password, name, age)
     	VALUES

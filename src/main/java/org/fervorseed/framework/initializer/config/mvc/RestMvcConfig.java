@@ -31,7 +31,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 */
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {"org.fervorseed.framework.controller.rest"}, useDefaultFilters=false, includeFilters={@Filter(Controller.class)})
+@ComponentScan(basePackages = {"org.fervorseed.framework.controller.restapp"}, useDefaultFilters=false, includeFilters={@Filter(Controller.class)})
 public class RestMvcConfig extends WebMvcConfigurerAdapter{
 	
 	private static final int CACHE_PERIOD = 31556926; // one year

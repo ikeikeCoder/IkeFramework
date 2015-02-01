@@ -1,6 +1,6 @@
 package org.fervorseed.framework.domain.webapp;
 
-public class Test {
+public class JspSample {
 	String id;
 	String name;
 	int age;
