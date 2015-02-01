@@ -24,4 +24,15 @@ public class Test {
 		this.age = age;
 	}
 	
+	@Override
+	public String toString() {
+		String str ="{";
+		str  += "id = " +id + ", ";
+		str  += "name = " +name + ", ";
+		str  += "age = " +age;
+		str += "}";
+		return str;
+	}
+	
+	
 }

@@ -38,9 +38,20 @@ public class TestController {
 		return returnMap;
 	}
 	
-	@RequestMapping("/getUserList")
+	@RequestMapping("/selectUserList")
 	@ResponseBody
 	public List<Test> getCabinetInfo(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception{
-		return testService.getUserList();
+		return testService.selectUserList();
+	}
+	
+	@RequestMapping("/insertUser")
+	@ResponseBody
+	public int insertTestUser(HttpServletRequest request, HttpServletResponse responses) {
+		Test test = new Test();
+		test.setId("test4");
+		test.setName("테스트4");
+		test.setAge(10);
+		
+		return testService.insertUser(test);
 	}
 }

@@ -4,8 +4,16 @@
 <!-- 마이바티스는 namespace의 값인 org.fervorseed.ikeframework.mapper.web.TestMapper 인터페이스를 매퍼로 연결한다. -->
 <mapper namespace="org.fervorseed.ikeframework.mapper.web.TestMapper">
 
-    <select id="getUserList" resultType="Test" >
+	<!--  -->
+    <select id="selectUserList" resultType="Test" >
 		SELECT id, name, age
 		FROM fv_member
     </select>
+    
+    <insert id="insertUser" parameterType="Test">
+    	INSERT INTO fv_member
+    	(id, password, name, age)
+    	VALUES
+    	(#{id},password('1234'),#{name},#{age})
+    </insert>
 </mapper>

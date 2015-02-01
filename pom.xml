@@ -29,6 +29,9 @@
 
 		<!-- Spring -->
 		<spring-framework.version>3.2.5.RELEASE</spring-framework.version>
+		
+		<!-- aspectj -->
+		<version.aspect>1.7.2</version.aspect>
 
 		<!-- Logging -->
 		<logback.version>1.0.13</logback.version>
@@ -81,10 +84,16 @@
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
-			<version>1.7.2</version>
+			<version>${version.aspect}</version>
 		</dependency>
 		
-				
+		<dependency>
+		    <groupId>org.aspectj</groupId>
+		    <artifactId>aspectjrt</artifactId>
+		    <version>${version.aspect}</version>
+	    </dependency>
+		
+		<!--  -->
 		
 		<!-- spring JDBC -->
 		<dependency>

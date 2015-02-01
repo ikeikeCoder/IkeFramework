@@ -6,8 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
-import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -22,18 +23,21 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 * @Description : service 컴포넌트를 스캔한다.  
 */
 @Configuration
-@EnableAsync
-@EnableTransactionManagement
+@EnableTransactionManagement()
+@EnableAspectJAutoProxy
+@ImportResource(value = "classpath:/config/transaction/transaction_config.xml")
 @ComponentScan("org.fervorseed.ikeframework.service")
 public class BusinessConfig {
 	
 	@Autowired
 	DataSource dataSource;
 
+	/**
+	 * TransactionManagement {@link org.springframework.transaction.PlatformTransactionManager} 설정
+	 * */
 	@Bean
-	public PlatformTransactionManager txManager() {
+	public PlatformTransactionManager transactionManager() {
 		return new DataSourceTransactionManager(dataSource);
 	}
-	
 	
 }

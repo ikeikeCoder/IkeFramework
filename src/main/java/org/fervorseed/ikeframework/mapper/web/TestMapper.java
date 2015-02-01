@@ -7,5 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TestMapper {
-	public List<Test> getUserList();
+	public List<Test> selectUserList();
+	
+	public int insertUser(Test test);
 }

@@ -15,8 +15,15 @@ public class TestServiceImpl implements TestService{
 	TestMapper testMapper;
 
 	@Override
-	public List<Test> getUserList() {
-		return testMapper.getUserList();
+	public List<Test> selectUserList() throws Exception{
+		
+		return testMapper.selectUserList();
+	}
+
+	@Override
+	public int insertUser(Test test) {
+		testMapper.insertUser(test);
+		return testMapper.insertUser(test);
 	}
 
 }
