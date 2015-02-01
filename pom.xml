@@ -71,6 +71,21 @@
 			</exclusions>
 		</dependency>
 		
+		<!-- spring AOP -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring-framework.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.7.2</version>
+		</dependency>
+		
+				
+		
 		<!-- spring JDBC -->
 		<dependency>
 		    <groupId>org.springframework</groupId>
