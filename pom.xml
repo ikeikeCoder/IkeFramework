@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.fervorseed</groupId>	<!-- groupId : 프로젝트 그룹 식별값 (ex : 도메인.회사명) -->
-  <artifactId>ikeFramework</artifactId>	<!-- artifactId : 프로젝트 식별값 (ex : 어플리케이션명) -->
+  <artifactId>framework</artifactId>	<!-- artifactId : 프로젝트 식별값 (ex : 어플리케이션명) -->
   <version>0.0.1-SNAPSHOT</version>	<!-- version : 버전 의미 (기본 0.0.1-SNAPSHOT) -->
   <packaging>war</packaging>	<!-- 패키징 타입을 의미. 프로젝트 결과물의 패키징 상태 값 (war, jar, ear 등의 존재) -->
   
@@ -221,7 +221,7 @@
 	
 	<!-- 컴파일러 플러그인과 리소스 플러그인 추가 -->
 	<build>
-		<finalName>ikeFramework</finalName>
+		<finalName>framework</finalName>
 		
 		<plugins>
 			<plugin>

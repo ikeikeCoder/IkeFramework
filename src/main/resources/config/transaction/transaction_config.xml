@@ -12,7 +12,7 @@
   http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
   
   <aop:config>
-  	<aop:pointcut id="service" expression="execution(* org.fervorseed.ikeframework.service..*Service.*(..))"/>
+  	<aop:pointcut id="service" expression="execution(* org.fervorseed.framework.service..*Service.*(..))"/>
   	
   	<aop:advisor advice-ref="txAdvice" pointcut-ref="service"/>
  
