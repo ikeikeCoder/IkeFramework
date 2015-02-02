@@ -37,8 +37,8 @@ public class Initializer implements WebApplicationInitializer {
 		rootContext.register(RootConfig.class);
 		servletContext.addListener(new ContextLoaderListener(rootContext));
 
-		this.addDispatcherServlet(servletContext, WebMvcConfig.class ,"webDispatcher", "/web/*", "true", 1);
-		this.addDispatcherServlet(servletContext, RestMvcConfig.class ,"restDispatcher", "/rest/*", "true", 2);
+		this.addDispatcherServlet(servletContext, WebMvcConfig.class ,"webDispatcher", "/web/*", "true", 1);		// web 서블릿 생성
+		this.addDispatcherServlet(servletContext, RestMvcConfig.class ,"restDispatcher", "/rest/*", "true", 2);		// restFul 서블릿 생성
         this.addUtf8CharacterEncodingFilter(servletContext, "/*");
 	}
 	
@@ -55,6 +55,7 @@ public class Initializer implements WebApplicationInitializer {
         dispatcher.setLoadOnStartup(order);
         dispatcher.addMapping(pattern);
         dispatcher.setInitParameter("dispatchOptionsRequest", cors); // CORS 를 위해서 option request 도 받아들인다.
+        
 	}
 	
 	/**
@@ -68,4 +69,6 @@ public class Initializer implements WebApplicationInitializer {
         filter.setInitParameter("forceEncoding", "true");
         filter.addMappingForUrlPatterns(null, false, pattern);
     }
+    
+    
 }
