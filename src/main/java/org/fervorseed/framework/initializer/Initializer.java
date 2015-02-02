@@ -1,6 +1,9 @@
 package org.fervorseed.framework.initializer;
 
+import java.util.ServiceConfigurationError;
+
 import javax.servlet.FilterRegistration;
+import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
@@ -29,6 +32,7 @@ import org.springframework.web.servlet.DispatcherServlet;
 public class Initializer implements WebApplicationInitializer {
 	
 	private static final String ENCODING = "UTF-8";
+	private int maxUploadSizeInMb = 5 * 1024 * 1024; // 5MB
 	
 	/*  web 설정 시작위치 */
 	@Override
@@ -50,12 +54,12 @@ public class Initializer implements WebApplicationInitializer {
 	private void addDispatcherServlet (ServletContext servletContext, Class servletConfig, String servletName, String pattern, String cors, int order) {
 		AnnotationConfigWebApplicationContext applicationContext = new AnnotationConfigWebApplicationContext();
 		applicationContext.register(servletConfig);
-		 
+		
         ServletRegistration.Dynamic dispatcher = servletContext.addServlet(servletName, new DispatcherServlet(applicationContext));
         dispatcher.setLoadOnStartup(order);
         dispatcher.addMapping(pattern);
         dispatcher.setInitParameter("dispatchOptionsRequest", cors); // CORS 를 위해서 option request 도 받아들인다.
-        
+        dispatcher.setMultipartConfig(new MultipartConfigElement("",maxUploadSizeInMb, maxUploadSizeInMb * 2, maxUploadSizeInMb / 2));
 	}
 	
 	/**

@@ -18,6 +18,7 @@ public class JspSampleController {
 	@RequestMapping("/selectUserList")
 	public String selectUserList(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception{
 		model.addAttribute("userList",jspSampleService.selectUserList());
+		
 		return "userList";
 	}
 }
