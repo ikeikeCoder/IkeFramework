@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<!-- 	<comment>orcle_Local 설정파일</comment> -->
+<!-- 	<entry key="jdbc.driverClassName">oracle.jdbc.driver.OracleDriver</entry> -->
+<!-- 	<entry key="jdbc.url">jdbc:oracle:thin:@local:1521/DB</entry> -->
+<!-- 	<entry key="jdbc.username">DBid</entry> -->
+<!-- 	<entry key="jdbc.password">DBpw</entry> -->
+	
+	<comment>mysql_Local 설정파일</comment>
+	<entry key="jdbc.driverClassName">com.mysql.jdbc.Driver</entry>
+	<entry key="jdbc.url">jdbc:mysql://local:3306/DB</entry>
+	<entry key="jdbc.username">DBid</entry>
+	<entry key="jdbc.password">DBpw</entry>
+	
+</properties>

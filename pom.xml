@@ -14,6 +14,33 @@
       </repository>
   </repositories>
   
+  <profiles>
+        <!-- local server -->
+        <profile>
+            <id>development</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation> 
+            <properties>
+                <environments>development</environments>
+            </properties>
+        </profile>
+        <!-- test server -->
+        <profile>
+            <id>test</id>
+            <properties>
+                <environments>test</environments>
+            </properties>
+        </profile>
+        <!-- real server -->
+        <profile>
+            <id>production</id>
+            <properties>
+                <environments>production</environments>
+            </properties>
+        </profile>
+    </profiles>
+  
   	<!-- properties : 속성값으로 사용할 하위 태그들을 기술 -->
     <properties> 
 
@@ -265,5 +292,14 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		
+		<resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>src/main/resources-${environments}</directory>
+            </resource>
+        </resources>
 	</build>
 </project>
