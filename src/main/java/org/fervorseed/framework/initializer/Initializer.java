@@ -1,20 +1,24 @@
 package org.fervorseed.framework.initializer;
 
-import java.util.ServiceConfigurationError;
+import java.util.EnumSet;
 
+import javax.servlet.DispatcherType;
 import javax.servlet.FilterRegistration;
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
+import org.fervorseed.framework.common.filter.SitemeshFilter;
 import org.fervorseed.framework.initializer.config.RootConfig;
 import org.fervorseed.framework.initializer.config.mvc.RestMvcConfig;
 import org.fervorseed.framework.initializer.config.mvc.WebMvcConfig;
+import org.sitemesh.config.ConfigurableSiteMeshFilter;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.filter.CharacterEncodingFilter;
+import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.DispatcherServlet;
 
 
@@ -40,10 +44,14 @@ public class Initializer implements WebApplicationInitializer {
 		AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
 		rootContext.register(RootConfig.class);
 		servletContext.addListener(new ContextLoaderListener(rootContext));
+		
+		
 
 		this.addDispatcherServlet(servletContext, WebMvcConfig.class ,"webDispatcher", "/web/*", "true", 1);		// web 서블릿 생성
 		this.addDispatcherServlet(servletContext, RestMvcConfig.class ,"restDispatcher", "/rest/*", "true", 2);		// restFul 서블릿 생성
         this.addUtf8CharacterEncodingFilter(servletContext, "/*");
+        this.addHiddenHttpMethodFilter(servletContext, "/*");
+        this.addSiteMeshFilter(servletContext, "/*");
 	}
 	
 	/**
@@ -63,16 +71,33 @@ public class Initializer implements WebApplicationInitializer {
 	}
 	
 	/**
-     * UTF-8 캐릭터 인코딩 필터를 추가한다.
-     * @param servletContext, encoding, pattern
+     * UTF-8 캐릭터 인코딩 필터.
+     * @param servletContext, pattern
      */
     private void addUtf8CharacterEncodingFilter(ServletContext servletContext, String pattern)
     {
-        FilterRegistration.Dynamic filter = servletContext.addFilter("CHARACTER_ENCODING_FILTER", CharacterEncodingFilter.class);
+        FilterRegistration.Dynamic filter = servletContext.addFilter("characterEncodingFilter", CharacterEncodingFilter.class);
         filter.setInitParameter("encoding", ENCODING);
         filter.setInitParameter("forceEncoding", "true");
-        filter.addMappingForUrlPatterns(null, false, pattern);
+        filter.addMappingForUrlPatterns(EnumSet.of(DispatcherType.REQUEST), true, pattern);
     }
     
+    /**
+     * 스프링 restFul 필터.
+     * @param servletContext, pattern
+     */
+    private void addHiddenHttpMethodFilter(ServletContext servletContext, String pattern) {
+        FilterRegistration.Dynamic hiddenHttpMethod = servletContext.addFilter("hiddenHttpMethodFilter", HiddenHttpMethodFilter.class);
+        hiddenHttpMethod.addMappingForUrlPatterns(EnumSet.of(DispatcherType.REQUEST), true, pattern);
+    }
     
+    /**
+     * Sitemesh 필터.
+     * @param servletContext, pattern
+     */
+    private void addSiteMeshFilter(ServletContext servletContext, String pattern) {
+    	FilterRegistration.Dynamic filter = servletContext.addFilter("sitemesh", SitemeshFilter.class);
+//    	FilterRegistration.Dynamic filter = servletContext.addFilter("sitemesh", ConfigurableSiteMeshFilter.class);
+    	filter.addMappingForUrlPatterns(EnumSet.of(DispatcherType.REQUEST, DispatcherType.FORWARD), true, pattern);
+    }
 }

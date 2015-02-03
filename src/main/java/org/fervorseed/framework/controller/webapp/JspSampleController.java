@@ -21,4 +21,9 @@ public class JspSampleController {
 		
 		return "userList";
 	}
+	
+	@RequestMapping("/sampleSitemesh")
+	public String sampleSitemesh() {
+		return "sampleSitemesh";
+	}
 }

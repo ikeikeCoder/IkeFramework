@@ -77,6 +77,9 @@
 		
 		<!-- Jackson -->
 		<version.Jackson>2.3.5</version.Jackson>
+		
+		<!-- siteMesh -->
+		<version.Sitemesh>3.0.0</version.Sitemesh>
 	</properties>
 	
 	<!-- 프로젝트에서 의존하는 다른 프로젝트 정보를 기술 (다른 필요한 라이브러리 정보 입력) (POM 정보를 기술해야함) -->
@@ -221,6 +224,13 @@
 		    <groupId>com.fasterxml.jackson.core</groupId>
 		    <artifactId>jackson-databind</artifactId>
 		    <version>${version.Jackson}</version>
+		</dependency>
+		
+		<!-- siteMesh -->
+		<dependency>
+		    <groupId>org.sitemesh</groupId>
+		    <artifactId>sitemesh</artifactId>
+		    <version>${version.Sitemesh}</version>
 		</dependency>
 		
 		<!-- Test Artifacts -->
