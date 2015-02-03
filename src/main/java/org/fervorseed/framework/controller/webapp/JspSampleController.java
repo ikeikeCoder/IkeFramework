@@ -15,6 +15,11 @@ public class JspSampleController {
 	@Autowired
 	JspSampleService jspSampleService;
 	
+	@RequestMapping("/userJoin")
+	public String userJoin () {
+		return "userJoin";
+	}
+	
 	@RequestMapping("/selectUserList")
 	public String selectUserList(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception{
 		model.addAttribute("userList",jspSampleService.selectUserList());

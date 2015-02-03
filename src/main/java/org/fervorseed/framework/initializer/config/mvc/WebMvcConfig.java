@@ -29,7 +29,10 @@ import org.springframework.web.servlet.view.JstlView;
 */
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {"org.fervorseed.framework.controller.webapp"}, useDefaultFilters=false, includeFilters={@Filter(Controller.class)})
+@ComponentScan(basePackages = {"org.fervorseed.framework.controller.webapp"}, 
+						 useDefaultFilters=false, 
+						 includeFilters={@Filter(Controller.class)}
+						)
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	
 	private static final int CACHE_PERIOD = 31556926; // one year
@@ -40,8 +43,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/resources/**")
-		  .addResourceLocations("/resources/")
-		  .addResourceLocations("classpath:/resources/")
+		  .addResourceLocations("/resources/", "classpath:/resources/")
 		  .setCachePeriod(CACHE_PERIOD);	// 브라우저 캐시 만료 기간 1년 설정.
 	}
 	
