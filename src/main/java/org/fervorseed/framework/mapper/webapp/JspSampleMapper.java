@@ -7,7 +7,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface JspSampleMapper {
-	public List<JspSample> selectUserList();
-	
-	public int insertUser(JspSample JspSample);
 }

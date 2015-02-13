@@ -10,4 +10,6 @@ public interface RestSampleMapper {
 	public List<RestSample> selectUserList();
 	
 	public int insertUser(RestSample restSample);
+	
+	public int deleteUser(String id);
 }

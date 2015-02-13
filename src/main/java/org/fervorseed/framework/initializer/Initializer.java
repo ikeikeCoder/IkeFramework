@@ -44,8 +44,6 @@ public class Initializer implements WebApplicationInitializer {
 		AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
 		rootContext.register(RootConfig.class);
 		servletContext.addListener(new ContextLoaderListener(rootContext));
-		
-		
 
 		this.addDispatcherServlet(servletContext, WebMvcConfig.class ,"webDispatcher", "/web/*", "true", 1);		// web 서블릿 생성
 		this.addDispatcherServlet(servletContext, RestMvcConfig.class ,"restDispatcher", "/rest/*", "true", 2);		// restFul 서블릿 생성
@@ -97,7 +95,6 @@ public class Initializer implements WebApplicationInitializer {
      */
     private void addSiteMeshFilter(ServletContext servletContext, String pattern) {
     	FilterRegistration.Dynamic filter = servletContext.addFilter("sitemesh", SitemeshFilter.class);
-//    	FilterRegistration.Dynamic filter = servletContext.addFilter("sitemesh", ConfigurableSiteMeshFilter.class);
     	filter.addMappingForUrlPatterns(EnumSet.of(DispatcherType.REQUEST, DispatcherType.FORWARD), true, pattern);
     }
 }

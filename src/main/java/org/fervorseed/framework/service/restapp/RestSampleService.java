@@ -8,4 +8,6 @@ public interface RestSampleService {
 	public List<RestSample> selectUserList() throws Exception;
 	
 	public int insertUser(RestSample restSample);
+	
+	public int deleteUser(String id);
 }

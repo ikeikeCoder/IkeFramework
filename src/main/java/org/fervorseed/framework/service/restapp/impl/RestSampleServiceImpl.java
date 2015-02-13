@@ -25,4 +25,9 @@ public class RestSampleServiceImpl implements RestSampleService{
 		return restSampleMapper.insertUser(restSample);
 	}
 
+	@Override
+	public int deleteUser(String id) {
+		return restSampleMapper.deleteUser(id);
+	}
+
 }

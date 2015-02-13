@@ -4,16 +4,23 @@
 <!-- 마이바티스는 namespace의 값인 org.fervorseed.framework.mapper.webapp.RestSampleMapper 인터페이스를 매퍼로 연결한다. -->
 <mapper namespace="org.fervorseed.framework.mapper.restapp.RestSampleMapper">
 
-	<!--  -->
+	<!-- 유저 목록 조회 -->
     <select id="selectUserList" resultType="RestSample" >
 		SELECT id, name, age
 		FROM fv_member
     </select>
     
+    <!-- 유저 등록 -->
     <insert id="insertUser" parameterType="RestSample">
     	INSERT INTO fv_member
     	(id, password, name, age)
     	VALUES
     	(#{id},password('1234'),#{name},#{age})
     </insert>
+    
+    <delete id="deleteUser" parameterType="java.lang.String">
+    	DELETE 
+    	FROM fv_member
+    	WHERE id = #{id} 
+    </delete>
 </mapper>

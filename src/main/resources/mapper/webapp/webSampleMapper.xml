@@ -4,16 +4,5 @@
 <!-- 마이바티스는 namespace의 값인 org.fervorseed.framework.mapper.webapp.JspSampleMapper 인터페이스를 매퍼로 연결한다. -->
 <mapper namespace="org.fervorseed.framework.mapper.webapp.JspSampleMapper">
 
-	<!--  -->
-    <select id="selectUserList" resultType="JspSample" >
-		SELECT id, name, age
-		FROM fv_member
-    </select>
-    
-    <insert id="insertUser" parameterType="JspSample">
-    	INSERT INTO fv_member
-    	(id, password, name, age)
-    	VALUES
-    	(#{id},password('1234'),#{name},#{age})
-    </insert>
+	
 </mapper>
